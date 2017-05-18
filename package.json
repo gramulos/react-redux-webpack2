@@ -1,7 +1,7 @@
 {
-  "name": "webpack2",
+  "name": "react-redux-webpack2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Starter kit for developing React applications with Redux using Webpack 2",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
@@ -9,7 +9,23 @@
     "serve": "webpack-dev-server",
     "flow": "flow"
   },
-  "author": "",
+  "keywords": [
+    "react",
+    "redux",
+    "es6",
+    "babel",
+    "webpack",
+    "webpack-dev-middleware",
+    "webpack-hot-middleware",
+    "boilerplate",
+    "starter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gramulos/react-redux-webpack2.git"
+  },
+  "bugs": "https://github.com/gramulos/react-redux-webpack2/issues",
+  "author": "Azar Safarov <gramulos@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.3",

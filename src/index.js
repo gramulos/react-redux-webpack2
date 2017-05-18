@@ -17,6 +17,7 @@ const App = () => {
       <Routes />
     </Provider>
   );
+};
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
