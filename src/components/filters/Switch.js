@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 const Switch = () => {
   return (
     <div>
       Switch
     </div>
-  );
-};
+  )
+}
 
-export { Switch };
+export { Switch }

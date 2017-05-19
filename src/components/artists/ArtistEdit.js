@@ -1,88 +1,96 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
 
 class ArtistEdit extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    this.state = {};
+    this.state = {}
   }
 
-  componentWillMount() {
-    this.props.findArtist(this.props.params.id);
+  componentWillMount () {
+    this.props.findArtist(this.props.params.id)
   }
 
-  componentWillReceiveProps({ artist }) {
+  componentWillReceiveProps ({ artist }) {
     if (artist) {
-      const { name, age, yearsActive, genre } = artist;
+      const { name, age, yearsActive, genre } = artist
 
-      this.setState({ name, age, yearsActive, genre });
+      this.setState({ name, age, yearsActive, genre })
     }
   }
 
-  componentWillUpdate(nextProps) {
+  componentWillUpdate (nextProps) {
     if (nextProps.params.id !== this.props.params.id) {
-      this.props.findArtist(nextProps.params.id);
+      this.props.findArtist(nextProps.params.id)
     }
   }
 
-  componentWillUnmount() {
-    this.props.clearError();
+  componentWillUnmount () {
+    this.props.clearError()
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-    event.stopPropagation();
+  onSubmit (event) {
+    event.preventDefault()
+    event.stopPropagation()
 
-    this.props.editArtist(this.props.params.id, this.state);
+    this.props.editArtist(this.props.params.id, this.state)
   }
 
-  render() {
+  render () {
     return (
-      <form onSubmit={this.onSubmit.bind(this)}>
-        <div className="input-field">
+      <form onSubmit={() => this.onSubmit()}>
+        <div className='input-field'>
           <input
             value={this.state.name}
             onChange={e => this.setState({ name: e.target.value })}
-            placeholder="Name"
+            placeholder='Name'
           />
         </div>
-        <div className="input-field">
+        <div className='input-field'>
           <input
             value={this.state.age}
             onChange={e => this.setState({ age: e.target.value })}
-            placeholder="Age"
+            placeholder='Age'
           />
         </div>
-        <div className="input-field">
+        <div className='input-field'>
           <input
             value={this.state.yearsActive}
             onChange={e => this.setState({ yearsActive: e.target.value })}
-            placeholder="Years Active"
+            placeholder='Years Active'
           />
         </div>
-        <div className="input-field">
+        <div className='input-field'>
           <input
             value={this.state.genre}
             onChange={e => this.setState({ genre: e.target.value })}
-            placeholder="Genre"
+            placeholder='Genre'
           />
         </div>
-        <div className="has-error">
+        <div className='has-error'>
           {this.props.errorMessage}
         </div>
-        <button className="btn">Submit</button>
+        <button className='btn'>Submit</button>
       </form>
-    );
+    )
   }
+}
+
+ArtistEdit.propTypes = {
+  editArtist: PropTypes.func,
+  errorMessage: PropTypes.object,
+  findArtist: PropTypes.func,
+  params: PropTypes.object,
+  clearError: PropTypes.func
 }
 
 const mapStateToProps = (state) => {
   return {
     artist: state.artists.artist,
     errorMessage: state.errors
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, actions)(ArtistEdit);
+export default connect(mapStateToProps, actions)(ArtistEdit)

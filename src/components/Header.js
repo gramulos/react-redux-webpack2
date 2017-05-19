@@ -1,35 +1,36 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
-const db = require('../../database/queries/db');
+import _ from 'lodash'
+import React, { Component } from 'react'
+import { Link } from 'react-router'
+const db = require('../../database/queries/db')
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    this.state = { id: null };
+    this.state = { id: null }
   }
 
-  componentWillMount() {
-    this.setLink();
+  componentWillMount () {
+    this.setLink()
   }
 
-  setLink() {
-    const index = _.random(0, db.length);
-    this.setState({ id: index });
+  setLink () {
+    const index = _.random(0, db.length)
+    this.setState({ id: index })
   }
 
-  render() {
+  render () {
     return (
-      <div className="row">
+      <div className='row'>
         <nav>
-          <div className="nav-wrapper">
-            <div className="col s12">
-              <a href="#" className="brand-logo">UpStar Music</a>
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <div className='nav-wrapper'>
+            <div className='col s12'>
+              <a href='#' className='brand-logo'>UpStar Music</a>
+              <ul id='nav-mobile' className='right hide-on-med-and-down'>
                 <li>
                   <Link
                     to={`/artists/${this.state.id}`}
-                    onClick={this.setLink.bind(this)}
+                    onClick={() => this.setLink()}
                   >
                     Random Artist
                   </Link>
@@ -44,8 +45,8 @@ class Header extends Component {
           </div>
         </nav>
       </div>
-    );
+    )
   }
-};
+}
 
-export default Header;
+export default Header

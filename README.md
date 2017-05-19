@@ -1,4 +1,5 @@
 # React-Redux boilerplate
+[![Build Status](https://travis-ci.org/gramulos/react-redux-webpack2.svg?branch=master)](https://travis-ci.org/gramulos/react-redux-webpack2?branch=master)
 [![dependencies](https://david-dm.org/gramulos/react-redux-webpack2.svg)](https://david-dm.org/gramulos/react-redux-webpack2)
 [![devDependency Status](https://david-dm.org/gramulos/react-redux-webpack2/dev-status.svg)](https://david-dm.org/gramulos/react-redux-webpack2#info=devDependencies)
 

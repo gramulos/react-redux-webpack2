@@ -1,13 +1,17 @@
-import React from 'react';
-import Header from './Header';
+import React, { PropTypes } from 'react'
+import Header from './Header'
 
 const Home = ({ children }) => {
   return (
-    <div className="container">
+    <div className='container'>
       <Header />
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+Home.propTypes = {
+  children: PropTypes.node
+}
+
+export default Home
