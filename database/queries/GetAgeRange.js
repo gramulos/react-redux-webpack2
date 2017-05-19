@@ -1,6 +1,5 @@
-const _ = require('lodash');
-const Artist = require('../seeds/artist');
-const db = require('./db');
+const _ = require('lodash')
+const db = require('./db')
 
 /**
  * Finds the lowest and highest age of artists in the Artist collection
@@ -12,8 +11,8 @@ module.exports = () => {
     const range = {
       max: _.maxBy(db, a => a.age).age,
       min: _.minBy(db, a => a.age).age,
-    };
-    
-    resolve(range);
-  });
-};
+    }
+
+    resolve(range)
+  })
+}

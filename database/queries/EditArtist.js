@@ -1,6 +1,5 @@
-const _ = require('lodash');
-const Artist = require('../seeds/artist');
-const db = require('./db');
+const _ = require('lodash')
+const db = require('./db')
 
 /**
  * Edits a single artist in the Artists collection
@@ -9,10 +8,10 @@ const db = require('./db');
  * @return {promise} A promise that resolves when the record is edited
  */
 module.exports = (_id, artistProps) => {
-  const artist = _.find(db, a => a._id === _id);
-  _.extend(artist, artistProps);
+  const artist = _.find(db, a => a._id === _id)
+  _.extend(artist, artistProps)
 
   return new Promise((resolve, reject) => {
-    resolve();
-  });
-};
+    resolve()
+  })
+}

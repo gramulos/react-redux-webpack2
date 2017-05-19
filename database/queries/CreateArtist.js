@@ -1,6 +1,5 @@
-const _ = require('lodash');
-const Artist = require('../seeds/artist');
-const db = require('./db');
+const _ = require('lodash')
+const db = require('./db')
 
 /**
  * Create a single artist in the artist collection.
@@ -15,10 +14,10 @@ module.exports = (artistProps) => {
       age: parseInt(artistProps.age) || 20,
       yearsActive: parseInt(artistProps.yearsActive) || 5
     }
-  );
-  db.push(artist);
+  )
+  db.push(artist)
 
   return new Promise((resolve, reject) => {
-    resolve(artist);
-  });
-};
+    resolve(artist)
+  })
+}

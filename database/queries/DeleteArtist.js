@@ -1,6 +1,5 @@
-const _ = require('lodash');
-const Artist = require('../seeds/artist');
-const db = require('./db');
+const _ = require('lodash')
+const db = require('./db')
 
 /**
  * Deletes a single artist from the Artists collection
@@ -9,10 +8,10 @@ const db = require('./db');
  */
 module.exports = (_id) => {
   _.each(db, (artist, index) => {
-    if(artist && artist._id === _id) {
-      db.splice(index, 1);
+    if (artist && artist._id === _id) {
+      db.splice(index, 1)
     }
-  });
+  })
 
-  return new Promise((resolve, reject) => resolve());
-};
+  return new Promise((resolve, reject) => resolve())
+}

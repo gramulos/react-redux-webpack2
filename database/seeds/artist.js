@@ -1,8 +1,8 @@
-import _ from 'lodash';
-import faker from 'faker';
-import { GENRES } from '../constants';
+import _ from 'lodash'
+import faker from 'faker'
+import { GENRES } from '../constants'
 
-module.exports = function() {
+module.exports = function () {
   return {
     _id: _.uniqueId(),
     name: faker.name.findName(),
@@ -15,12 +15,12 @@ module.exports = function() {
     labelName: faker.company.companyName(),
     retired: faker.random.boolean(),
     albums: getAlbums()
-  };
+  }
 }
 
-function getAlbums() {
+function getAlbums () {
   return _.times(randomBetween(0, 5), () => {
-    const copiesSold = randomBetween(0, 1000000);
+    const copiesSold = randomBetween(0, 1000000)
 
     return {
       title: _.capitalize(faker.random.words()),
@@ -29,25 +29,25 @@ function getAlbums() {
       numberTracks: randomBetween(1, 20),
       image: getAlbumImage(),
       revenue: copiesSold * 12.99
-    };
-  });
+    }
+  })
 }
 
-function getAlbumImage() {
-  const types = _.keys(faker.image);
-  const method = randomEntry(types);
+function getAlbumImage () {
+  const types = _.keys(faker.image)
+  const method = randomEntry(types)
 
-  return faker.image[method]();
+  return faker.image[method]()
 }
 
-function getGenre() {
-  return randomEntry(GENRES);
+function getGenre () {
+  return randomEntry(GENRES)
 }
 
-function randomEntry(array) {
-  return array[~~(Math.random() * array.length)];
+function randomEntry (array) {
+  return array[~~(Math.random() * array.length)]
 }
 
-function randomBetween(min, max) {
-  return ~~(Math.random() * (max-min)) + min;
+function randomBetween (min, max) {
+  return ~~(Math.random() * (max - min)) + min
 }

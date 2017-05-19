@@ -1,6 +1,5 @@
-const _ = require('lodash');
-const Artist = require('../seeds/artist');
-const db = require('./db');
+const _ = require('lodash')
+const db = require('./db')
 
 /**
  * Sets a group of Artists as retired
@@ -12,9 +11,11 @@ module.exports = (_ids) => {
     const artists = _.chain(_ids)
       .map(_id => _.find(db, a => a._id === _id))
       .compact()
-      .each(a => a.retired = true)
-      .value();
+      .each((a) => {
+        a.retired = true
+      })
+      .value()
 
-    resolve(artists);
-  });
-};
+    resolve(artists)
+  })
+}

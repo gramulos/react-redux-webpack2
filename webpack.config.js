@@ -1,7 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VENDOR_LIBS = [
   'react', 'lodash', 'redux', 'react-redux', 'react-dom', 'faker', 'react-input-range', 'redux-form', 'redux-thunk'
 ]
@@ -23,8 +23,8 @@ const config = {
         test: /\.js$/
       }, {
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
+          fallback: 'style-loader',
+          use: 'css-loader'
         }),
         test: /\.css$/
       }, {
@@ -42,7 +42,7 @@ const config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin('styles.css'),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
@@ -54,6 +54,6 @@ const config = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ]
-};
+}
 
-module.exports = config;
+module.exports = config

@@ -1,6 +1,5 @@
-const _ = require('lodash');
-const Artist = require('../seeds/artist');
-const db = require('./db');
+const _ = require('lodash')
+const db = require('./db')
 
 /**
  * Searches through the Artist collection
@@ -15,7 +14,7 @@ module.exports = (_criteria, sortProperty, offset = 0, limit = 20) => {
     age: { min: 0, max: 100 },
     yearsActive: { min: 0, max: 100 },
     name: ''
-  }, _criteria);
+  }, _criteria)
 
   const artists = _.chain(db)
     .filter(a => _.includes(_.lowerCase(a.name), _.lowerCase(criteria.name)))
@@ -25,6 +24,6 @@ module.exports = (_criteria, sortProperty, offset = 0, limit = 20) => {
     .value()
 
   return new Promise((resolve, reject) => {
-    resolve(artists);
-  });
-};
+    resolve(artists)
+  })
+}
